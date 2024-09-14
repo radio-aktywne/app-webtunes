@@ -1,0 +1,8 @@
+.box {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--mantine-spacing-xl);
+  justify-content: center;
+  align-items: center;
+}

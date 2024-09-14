@@ -1,0 +1,1831 @@
+info:
+  title: emitunes app
+openapi: 3.1.0
+paths:
+  /bindings:
+    get:
+      summary: List bindings
+      description: List bindings that match the request.
+      operationId: BindingsList
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: integer
+                default: 10
+            description: Maximum number of bindings to return.
+            default: 10
+          description: Maximum number of bindings to return.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: offset
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: integer
+            description: Number of bindings to skip.
+          description: Number of bindings to skip.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: where
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Filter to apply to find bindings.
+          description: Filter to apply to find bindings.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: include
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Relations to include in the response.
+          description: Relations to include in the response.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: order
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Order to apply to the results.
+          description: Order to apply to the results.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BindingList"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+    post:
+      summary: Create binding
+      description: Create a new binding.
+      operationId: BindingsCreate
+      parameters:
+        - name: include
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Relations to include in the response.
+          description: Relations to include in the response.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BindingCreateInput"
+        required: true
+      responses:
+        "201":
+          description: Document created, URL follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/bindings_models_Binding"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+  /bindings/{id}:
+    get:
+      summary: Get binding
+      description: Get a binding by ID.
+      operationId: BindingsIdGet
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the binding to get.
+          description: Identifier of the binding to get.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: include
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Relations to include in the response.
+          description: Relations to include in the response.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/bindings_models_Binding"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+    delete:
+      summary: Delete binding
+      description: Delete a binding by ID.
+      operationId: BindingsIdDelete
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the binding to delete.
+          description: Identifier of the binding to delete.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "204":
+          description: Request fulfilled, nothing follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: "null"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+    patch:
+      summary: Update binding
+      description: Update a binding by ID.
+      operationId: BindingsIdUpdate
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the binding to update.
+          description: Identifier of the binding to update.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: include
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Relations to include in the response.
+          description: Relations to include in the response.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BindingUpdateInput"
+        required: true
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/bindings_models_Binding"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+  /media:
+    get:
+      summary: List media
+      description: List media that match the request.
+      operationId: MediaList
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: integer
+                default: 10
+            description: Maximum number of media to return.
+            default: 10
+          description: Maximum number of media to return.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: offset
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: integer
+            description: Number of media to skip.
+          description: Number of media to skip.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: where
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Filter to apply to find media.
+          description: Filter to apply to find media.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: include
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Relations to include in the response.
+          description: Relations to include in the response.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: order
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Order to apply to the results.
+          description: Order to apply to the results.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MediaList"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+    post:
+      summary: Create media
+      description: Create new media.
+      operationId: MediaCreate
+      parameters:
+        - name: include
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Relations to include in the response.
+          description: Relations to include in the response.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MediaCreateInput"
+        required: true
+      responses:
+        "201":
+          description: Document created, URL follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/media_models_Media"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+  /media/{id}:
+    get:
+      summary: Get media
+      description: Get media by ID.
+      operationId: MediaIdGet
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the media to get.
+          description: Identifier of the media to get.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: include
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Relations to include in the response.
+          description: Relations to include in the response.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/media_models_Media"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+    delete:
+      summary: Delete media
+      description: Delete media by ID.
+      operationId: MediaIdDelete
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the media to delete.
+          description: Identifier of the media to delete.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "204":
+          description: Request fulfilled, nothing follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: "null"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+    patch:
+      summary: Update media
+      description: Update media by ID.
+      operationId: MediaIdUpdate
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the media to update.
+          description: Identifier of the media to update.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: include
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Relations to include in the response.
+          description: Relations to include in the response.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MediaUpdateInput"
+        required: true
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/media_models_Media"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+  /media/{id}/content:
+    get:
+      summary: Download media content
+      description: Download media content by ID.
+      operationId: MediaIdContentDownload
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the media to download content for.
+          description: Identifier of the media to download content for.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "200":
+          description: Stream Response
+          headers:
+            content-length:
+              schema:
+                type: string
+              description: File size in bytes
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+            last-modified:
+              schema:
+                type: string
+                format: date-time
+              description: Last modified data-time in RFC 2822 format
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+            etag:
+              schema:
+                type: string
+              description: Entity tag
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+            Last-Modified:
+              description: Last modified.
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+            Content-Length:
+              description: Content length.
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+            ETag:
+              description: Entity tag.
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+            Content-Type:
+              description: Content type.
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+          content:
+            "":
+              schema:
+                type: string
+                contentMediaType: application/octet-stream
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+    put:
+      summary: Upload media content
+      description: Upload media content by ID.
+      operationId: MediaIdContentUpload
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the media to upload content for.
+          description: Identifier of the media to upload content for.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+            description: Content type.
+          description: Content type.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "204":
+          description: Request fulfilled, nothing follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: "null"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+    head:
+      summary: Get media content headers
+      description: Get media content headers by ID.
+      operationId: MediaIdContentHeaddownload
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the media to get content headers for.
+          description: Identifier of the media to get content headers for.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers:
+            Last-Modified:
+              description: Last modified.
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+            Content-Length:
+              description: Content length.
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+            ETag:
+              description: Entity tag.
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+            Content-Type:
+              description: Content type.
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+          content:
+            application/json:
+              schema:
+                type: "null"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+  /ping:
+    get:
+      summary: Ping
+      description: Ping.
+      operationId: PingPing
+      responses:
+        "204":
+          description: Request fulfilled, nothing follows
+          headers:
+            cache-control:
+              schema:
+                type: string
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+          content:
+            application/json:
+              schema:
+                type: "null"
+      deprecated: false
+    head:
+      summary: Ping headers
+      description: Ping headers.
+      operationId: PingHeadping
+      responses:
+        "204":
+          description: Request fulfilled, nothing follows
+          headers:
+            cache-control:
+              schema:
+                type: string
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+          content:
+            application/json:
+              schema:
+                type: "null"
+      deprecated: false
+  /playlists:
+    get:
+      summary: List playlists
+      description: List playlists that match the request.
+      operationId: PlaylistsList
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: integer
+                default: 10
+            description: Maximum number of playlists to return.
+            default: 10
+          description: Maximum number of playlists to return.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: offset
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: integer
+            description: Number of playlists to skip.
+          description: Number of playlists to skip.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: where
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Filter to apply to find playlists.
+          description: Filter to apply to find playlists.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: include
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Relations to include in the response.
+          description: Relations to include in the response.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: order
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Order to apply to the results.
+          description: Order to apply to the results.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlaylistList"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+    post:
+      summary: Create playlist
+      description: Create a new playlist.
+      operationId: PlaylistsCreate
+      parameters:
+        - name: include
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Relations to include in the response.
+          description: Relations to include in the response.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlaylistCreateInput"
+        required: true
+      responses:
+        "201":
+          description: Document created, URL follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/playlists_models_Playlist"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+  /playlists/{id}:
+    get:
+      summary: Get playlist
+      description: Get a playlist by ID.
+      operationId: PlaylistsIdGet
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the playlist to get.
+          description: Identifier of the playlist to get.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: include
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Relations to include in the response.
+          description: Relations to include in the response.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/playlists_models_Playlist"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+    delete:
+      summary: Delete playlist
+      description: Delete a playlist by ID.
+      operationId: PlaylistsIdDelete
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the playlist to delete.
+          description: Identifier of the playlist to delete.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "204":
+          description: Request fulfilled, nothing follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: "null"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+    patch:
+      summary: Update playlist
+      description: Update a playlist by ID.
+      operationId: PlaylistsIdUpdate
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the playlist to update.
+          description: Identifier of the playlist to update.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+        - name: include
+          in: query
+          schema:
+            oneOf:
+              - type: "null"
+              - type: string
+            description: Relations to include in the response.
+          description: Relations to include in the response.
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlaylistUpdateInput"
+        required: true
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/playlists_models_Playlist"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+  /playlists/{id}/m3u:
+    get:
+      summary: Get playlist in M3U format
+      description: Get a playlist in M3U format.
+      operationId: PlaylistsIdM3UM3U
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the playlist to get.
+          description: Identifier of the playlist to get.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: Content type.
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+          content:
+            audio/mpegurl:
+              schema:
+                type: string
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+    head:
+      summary: Get headers for playlist in M3U format
+      description: Get headers for a playlist in M3U format.
+      operationId: PlaylistsIdM3UHeadm3U
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            format: uuid
+            description: Identifier of the playlist to get.
+          description: Identifier of the playlist to get.
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          allowReserved: false
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: Content type.
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+          content:
+            application/json:
+              schema:
+                type: "null"
+        "400":
+          description: Bad request syntax or unsupported method
+          content:
+            application/json:
+              schema:
+                properties:
+                  status_code:
+                    type: integer
+                  detail:
+                    type: string
+                  extra:
+                    additionalProperties: {}
+                    type:
+                      - "null"
+                      - object
+                      - array
+                type: object
+                required:
+                  - detail
+                  - status_code
+                description: Validation Exception
+                examples:
+                  - status_code: 400
+                    detail: Bad Request
+                    extra: {}
+      deprecated: false
+  /sse:
+    get:
+      summary: Get SSE stream
+      description: Get a stream of Server-Sent Events.
+      operationId: SseSubscribe
+      responses:
+        "200":
+          description: Request fulfilled, document follows
+          headers:
+            content-length:
+              schema:
+                type: string
+              description: File size in bytes
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+            last-modified:
+              schema:
+                type: string
+                format: date-time
+              description: Last modified data-time in RFC 2822 format
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+            etag:
+              schema:
+                type: string
+              description: Entity tag
+              required: false
+              deprecated: false
+              allowEmptyValue: false
+              allowReserved: false
+          content:
+            "":
+              schema:
+                type: string
+                contentMediaType: application/octet-stream
+      deprecated: false
+components:
+  schemas:
+    BindingCreateInput:
+      properties:
+        id:
+          type: string
+        playlistId:
+          type: string
+        mediaId:
+          type: string
+        rank:
+          type: string
+      type: object
+      required:
+        - mediaId
+        - playlistId
+        - rank
+      title: BindingCreateInput
+      description: Data to create a binding.
+    BindingList:
+      properties:
+        count:
+          type: integer
+          description: Total number of bindings that matched the query.
+        limit:
+          oneOf:
+            - type: "null"
+            - type: integer
+          description: Maximum number of returned bindings.
+        offset:
+          oneOf:
+            - type: "null"
+            - type: integer
+          description: Number of bindings skipped.
+        bindings:
+          items:
+            $ref: "#/components/schemas/bindings_models_Binding"
+          type: array
+          description: Bindings that matched the request.
+      type: object
+      required:
+        - bindings
+        - count
+      title: BindingList
+    BindingUpdateInput:
+      properties:
+        id:
+          type: string
+        rank:
+          type: string
+      type: object
+      required: []
+      title: BindingUpdateInput
+      description: Data to update a binding.
+    MediaCreateInput:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      type: object
+      required:
+        - name
+      title: MediaCreateInput
+      description: Data to create media.
+    MediaList:
+      properties:
+        count:
+          type: integer
+          description: Total number of media that matched the query.
+        limit:
+          oneOf:
+            - type: "null"
+            - type: integer
+          description: Maximum number of returned media.
+        offset:
+          oneOf:
+            - type: "null"
+            - type: integer
+          description: Number of media skipped.
+        media:
+          items:
+            $ref: "#/components/schemas/media_models_Media"
+          type: array
+          description: Media that matched the request.
+      type: object
+      required:
+        - count
+        - media
+      title: MediaList
+    MediaUpdateInput:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      type: object
+      required: []
+      title: MediaUpdateInput
+      description: Data to update media.
+    PlaylistCreateInput:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      type: object
+      required:
+        - name
+      title: PlaylistCreateInput
+      description: Data to create a playlist.
+    PlaylistList:
+      properties:
+        count:
+          type: integer
+          description: Total number of playlists that matched the query.
+        limit:
+          oneOf:
+            - type: "null"
+            - type: integer
+          description: Maximum number of returned playlists.
+        offset:
+          oneOf:
+            - type: "null"
+            - type: integer
+          description: Number of playlists skipped.
+        playlists:
+          items:
+            $ref: "#/components/schemas/playlists_models_Playlist"
+          type: array
+          description: Playlists that matched the request.
+      type: object
+      required:
+        - count
+        - playlists
+      title: PlaylistList
+    PlaylistUpdateInput:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      type: object
+      required: []
+      title: PlaylistUpdateInput
+      description: Data to update a playlist.
+    bindings_models_Binding:
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Identifier of the binding.
+        playlistId:
+          type: string
+          format: uuid
+          description: Identifier of the playlist that the binding belongs to.
+        mediaId:
+          type: string
+          format: uuid
+          description: Identifier of the media that the binding belongs to.
+        rank:
+          type: string
+          description: Rank of the media in the binding.
+        playlist:
+          oneOf:
+            - type: "null"
+            - $ref: "#/components/schemas/bindings_models_Playlist"
+          description: Playlist that the binding belongs to.
+        media:
+          oneOf:
+            - type: "null"
+            - $ref: "#/components/schemas/bindings_models_Media"
+          description: Media that the binding belongs to.
+      type: object
+      required:
+        - id
+        - mediaId
+        - playlistId
+        - rank
+      title: Binding
+    bindings_models_Media:
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Identifier of the media.
+        name:
+          type: string
+          description: Name of the media.
+        bindings:
+          oneOf:
+            - type: "null"
+            - items:
+                $ref: "#/components/schemas/bindings_models_Binding"
+              type: array
+          description: Bindings that the media belongs to.
+      type: object
+      required:
+        - id
+        - name
+      title: Media
+    bindings_models_Playlist:
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Identifier of the playlist.
+        name:
+          type: string
+          description: Name of the playlist.
+        bindings:
+          oneOf:
+            - type: "null"
+            - items:
+                $ref: "#/components/schemas/bindings_models_Binding"
+              type: array
+          description: Bindings that the playlist belongs to.
+      type: object
+      required:
+        - id
+        - name
+      title: Playlist
+    media_models_Binding:
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Identifier of the binding.
+        playlistId:
+          type: string
+          format: uuid
+          description: Identifier of the playlist that the binding belongs to.
+        mediaId:
+          type: string
+          format: uuid
+          description: Identifier of the media that the binding belongs to.
+        rank:
+          type: string
+          description: Rank of the media in the binding.
+        playlist:
+          oneOf:
+            - type: "null"
+            - $ref: "#/components/schemas/media_models_Playlist"
+          description: Playlist that the binding belongs to.
+        media:
+          oneOf:
+            - type: "null"
+            - $ref: "#/components/schemas/media_models_Media"
+          description: Media that the binding belongs to.
+      type: object
+      required:
+        - id
+        - mediaId
+        - playlistId
+        - rank
+      title: Binding
+    media_models_Media:
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Identifier of the media.
+        name:
+          type: string
+          description: Name of the media.
+        bindings:
+          oneOf:
+            - type: "null"
+            - items:
+                $ref: "#/components/schemas/media_models_Binding"
+              type: array
+          description: Bindings that the media belongs to.
+      type: object
+      required:
+        - id
+        - name
+      title: Media
+    media_models_Playlist:
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Identifier of the playlist.
+        name:
+          type: string
+          description: Name of the playlist.
+        bindings:
+          oneOf:
+            - type: "null"
+            - items:
+                $ref: "#/components/schemas/media_models_Binding"
+              type: array
+          description: Bindings that the playlist belongs to.
+      type: object
+      required:
+        - id
+        - name
+      title: Playlist
+    playlists_models_Binding:
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Identifier of the binding.
+        playlistId:
+          type: string
+          format: uuid
+          description: Identifier of the playlist that the binding belongs to.
+        mediaId:
+          type: string
+          format: uuid
+          description: Identifier of the media that the binding belongs to.
+        rank:
+          type: string
+          description: Rank of the media in the binding.
+        playlist:
+          oneOf:
+            - type: "null"
+            - $ref: "#/components/schemas/playlists_models_Playlist"
+          description: Playlist that the binding belongs to.
+        media:
+          oneOf:
+            - type: "null"
+            - $ref: "#/components/schemas/playlists_models_Media"
+          description: Media that the binding belongs to.
+      type: object
+      required:
+        - id
+        - mediaId
+        - playlistId
+        - rank
+      title: Binding
+    playlists_models_Media:
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Identifier of the media.
+        name:
+          type: string
+          description: Name of the media.
+        bindings:
+          oneOf:
+            - type: "null"
+            - items:
+                $ref: "#/components/schemas/playlists_models_Binding"
+              type: array
+          description: Bindings that the media belongs to.
+      type: object
+      required:
+        - id
+        - name
+      title: Media
+    playlists_models_Playlist:
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Identifier of the playlist.
+        name:
+          type: string
+          description: Name of the playlist.
+        bindings:
+          oneOf:
+            - type: "null"
+            - items:
+                $ref: "#/components/schemas/playlists_models_Binding"
+              type: array
+          description: Bindings that the playlist belongs to.
+      type: object
+      required:
+        - id
+        - name
+      title: Playlist
