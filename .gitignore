@@ -1,0 +1,26 @@
+# Local development environment overrides
+/local.nix
+
+#Task
+/.task/
+/Taskfile.yaml
+/Taskfile.yml
+
+# Misc
+.DS_Store
+.todo
+
+# Dependencies
+/node_modules/
+
+# Build
+/build/
+
+# Debug
+npm-debug.log*
+
+# Typescript
+*.tsbuildinfo
+
+# Next.js
+next-env.d.ts

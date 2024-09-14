@@ -1,0 +1,13 @@
+services:
+  webtunes:
+    build:
+      context: ./
+      network: host
+    environment:
+      - "WEBTUNES__SERVER__HOST=${WEBTUNES__SERVER__HOST:-0.0.0.0}"
+      - "WEBTUNES__SERVER__PORT=${WEBTUNES__SERVER__PORT:-43000}"
+      - "WEBTUNES__EMITUNES__HTTP__SCHEME=${WEBTUNES__EMITUNES__HTTP__SCHEME:-http}"
+      - "WEBTUNES__EMITUNES__HTTP__HOST=${WEBTUNES__EMITUNES__HTTP__HOST:-localhost}"
+      - "WEBTUNES__EMITUNES__HTTP__PORT=${WEBTUNES__EMITUNES__HTTP__PORT:-42000}"
+      - "WEBTUNES__EMITUNES__HTTP__PATH=${WEBTUNES__EMITUNES__HTTP__PATH:-}"
+    network_mode: host
