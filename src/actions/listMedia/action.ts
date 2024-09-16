@@ -13,7 +13,7 @@ export async function listMedia({
   order,
 }: ListMediaProps = {}) {
   try {
-    const { data, error } = await emitunes.GET("/media", {
+    const { data, error, response } = await emitunes.GET("/media", {
       params: {
         query: {
           limit: limit,
@@ -25,7 +25,7 @@ export async function listMedia({
       },
     });
 
-    if (error) return { data: undefined, error: errorMessage };
+    if (error || !response.ok) return { data: undefined, error: errorMessage };
     return { data, error: undefined };
   } catch (error) {
     return { data: undefined, error: errorMessage };

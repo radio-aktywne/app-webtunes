@@ -7,11 +7,11 @@ const errorMessage = "Deleting media failed.";
 
 export async function deleteMedia({ id }: DeleteMediaProps) {
   try {
-    const { error } = await emitunes.DELETE("/media/{id}", {
+    const { error, response } = await emitunes.DELETE("/media/{id}", {
       params: { path: { id } },
     });
 
-    return { error: error ? errorMessage : undefined };
+    return { error: error || !response.ok ? errorMessage : undefined };
   } catch (error) {
     return { error: errorMessage };
   }

@@ -13,7 +13,7 @@ export async function listPlaylists({
   order,
 }: ListPlaylistsProps = {}) {
   try {
-    const { data, error } = await emitunes.GET("/playlists", {
+    const { data, error, response } = await emitunes.GET("/playlists", {
       params: {
         query: {
           limit: limit,
@@ -25,7 +25,7 @@ export async function listPlaylists({
       },
     });
 
-    if (error) return { data: undefined, error: errorMessage };
+    if (error || !response.ok) return { data: undefined, error: errorMessage };
     return { data, error: undefined };
   } catch (error) {
     return { data: undefined, error: errorMessage };

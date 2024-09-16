@@ -7,16 +7,15 @@ const errorMessage = "Getting binding failed.";
 
 export async function getBinding({ id, include }: GetBindingProps) {
   try {
-    const { data, error } = await emitunes.GET("/bindings/{id}", {
+    const { data, error, response } = await emitunes.GET("/bindings/{id}", {
       params: {
         path: { id },
         query: { include: include && JSON.stringify(include) },
       },
     });
 
-    if (error) {
-      if (error.status_code === 404)
-        return { data: undefined, error: undefined };
+    if (error || !response.ok) {
+      if (response.status === 404) return { data: undefined, error: undefined };
 
       return { data: undefined, error: errorMessage };
     }

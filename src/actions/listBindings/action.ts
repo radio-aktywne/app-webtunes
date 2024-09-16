@@ -13,7 +13,7 @@ export async function listBindings({
   order,
 }: ListBindingsProps = {}) {
   try {
-    const { data, error } = await emitunes.GET("/bindings", {
+    const { data, error, response } = await emitunes.GET("/bindings", {
       params: {
         query: {
           limit: limit,
@@ -25,7 +25,7 @@ export async function listBindings({
       },
     });
 
-    if (error) return { data: undefined, error: errorMessage };
+    if (error || !response.ok) return { data: undefined, error: errorMessage };
     return { data, error: undefined };
   } catch (error) {
     return { data: undefined, error: errorMessage };
