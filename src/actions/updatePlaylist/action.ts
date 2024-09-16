@@ -8,7 +8,7 @@ const badRequestErrorMessage = "Invalid data.";
 
 export async function updatePlaylist({ id, update }: UpdatePlaylistProps) {
   try {
-    const { data, error } = await emitunes.PATCH("/playlists/{id}", {
+    const { data, error, response } = await emitunes.PATCH("/playlists/{id}", {
       params: { path: { id } },
       body: {
         id: update.id,
@@ -16,8 +16,8 @@ export async function updatePlaylist({ id, update }: UpdatePlaylistProps) {
       },
     });
 
-    if (error) {
-      if (error.status_code === 400)
+    if (error || !response.ok) {
+      if (response.status === 400)
         return { data: undefined, error: badRequestErrorMessage };
 
       return { data: undefined, error: genericErrorMessage };

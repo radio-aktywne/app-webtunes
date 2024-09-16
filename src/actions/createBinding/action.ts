@@ -13,7 +13,7 @@ export async function createBinding({
   rank,
 }: CreateBindingProps) {
   try {
-    const { data, error } = await emitunes.POST("/bindings", {
+    const { data, error, response } = await emitunes.POST("/bindings", {
       body: {
         id: id,
         playlistId: playlist,
@@ -22,8 +22,8 @@ export async function createBinding({
       },
     });
 
-    if (error) {
-      if (error.status_code === 400)
+    if (error || !response.ok) {
+      if (response.status === 400)
         return { data: undefined, error: badRequestErrorMessage };
 
       return { data: undefined, error: genericErrorMessage };

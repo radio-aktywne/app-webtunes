@@ -7,16 +7,15 @@ const errorMessage = "Getting playlist failed.";
 
 export async function getPlaylist({ id, include }: GetPlaylistProps) {
   try {
-    const { data, error } = await emitunes.GET("/playlists/{id}", {
+    const { data, error, response } = await emitunes.GET("/playlists/{id}", {
       params: {
         path: { id },
         query: { include: include && JSON.stringify(include) },
       },
     });
 
-    if (error) {
-      if (error.status_code === 404)
-        return { data: undefined, error: undefined };
+    if (error || !response.ok) {
+      if (response.status === 404) return { data: undefined, error: undefined };
 
       return { data: undefined, error: errorMessage };
     }

@@ -7,11 +7,11 @@ const errorMessage = "Deleting binding failed.";
 
 export async function deleteBinding({ id }: DeleteBindingProps) {
   try {
-    const { error } = await emitunes.DELETE("/bindings/{id}", {
+    const { error, response } = await emitunes.DELETE("/bindings/{id}", {
       params: { path: { id } },
     });
 
-    return { error: error ? errorMessage : undefined };
+    return { error: error || !response.ok ? errorMessage : undefined };
   } catch (error) {
     return { error: errorMessage };
   }

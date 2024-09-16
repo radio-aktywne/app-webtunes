@@ -7,11 +7,11 @@ const errorMessage = "Deleting playlist failed.";
 
 export async function deletePlaylist({ id }: DeletePlaylistProps) {
   try {
-    const { error } = await emitunes.DELETE("/playlists/{id}", {
+    const { error, response } = await emitunes.DELETE("/playlists/{id}", {
       params: { path: { id } },
     });
 
-    return { error: error ? errorMessage : undefined };
+    return { error: error || !response.ok ? errorMessage : undefined };
   } catch (error) {
     return { error: errorMessage };
   }
