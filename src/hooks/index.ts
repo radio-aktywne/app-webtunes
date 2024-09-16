@@ -2,6 +2,7 @@ export * from "./useBindingForm";
 export * from "./useGetBinding";
 export * from "./useGetMedia";
 export * from "./useGetPlaylist";
+export * from "./useHeadMediaContent";
 export * from "./useHydrated";
 export * from "./useListBindings";
 export * from "./useListMedia";

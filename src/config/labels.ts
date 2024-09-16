@@ -101,6 +101,14 @@ export const labels = {
       },
     },
     media: {
+      buttons: {
+        upload: {
+          label: "Upload",
+        },
+        download: {
+          label: "Download",
+        },
+      },
       form: {
         fields: {
           name: {
@@ -126,6 +134,11 @@ export const labels = {
         },
         delete: {
           success: (id: string) => `Media ${id} deleted`,
+        },
+        upload: {
+          noFile: "No file selected",
+          error: (id: string) => `Failed to upload content for media ${id}`,
+          success: (id: string) => `Content uploaded for media ${id}`,
         },
       },
     },
