@@ -1,12 +1,15 @@
 "use client";
 
+import { Stack } from "@mantine/core";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { UpdateMediaProps, deleteMedia, updateMedia } from "../../../actions";
 import { labels } from "../../../config/labels";
 import { useGetMedia, useToasts } from "../../../hooks";
+import { DownloadButton } from "./DownloadButton";
 import { MediaForm, MediaFormData } from "./MediaForm";
 import { MediaWidgetProps } from "./MediaWidget.types";
+import { UploadButton } from "./UploadButton";
 
 export function MediaWidget({ media: prefetchedMedia }: MediaWidgetProps) {
   const router = useRouter();
@@ -62,12 +65,39 @@ export function MediaWidget({ media: prefetchedMedia }: MediaWidgetProps) {
     }
   }, [media.id, error, success, router]);
 
+  const handleUpload = useCallback(
+    async (payload: File | null) => {
+      if (payload === null) error(labels.widgets.media.toasts.upload.noFile);
+
+      const response = await fetch(`/api/media/${media.id}`, {
+        method: "PUT",
+        body: payload,
+      });
+
+      if (response.ok)
+        success(labels.widgets.media.toasts.upload.success(media.id));
+      else error(labels.widgets.media.toasts.upload.error(media.id));
+    },
+    [error, media.id, success],
+  );
+
   return (
-    <MediaForm
-      values={{ name: media.name }}
-      labels={labels.widgets.media.form}
-      onSave={handleSave}
-      onDelete={handleDelete}
-    />
+    <Stack>
+      <MediaForm
+        values={{ name: media.name }}
+        labels={labels.widgets.media.form}
+        onSave={handleSave}
+        onDelete={handleDelete}
+      />
+      <UploadButton
+        media={media}
+        label={labels.widgets.media.buttons.upload.label}
+        onUpload={handleUpload}
+      />
+      <DownloadButton
+        media={media}
+        label={labels.widgets.media.buttons.download.label}
+      />
+    </Stack>
   );
 }

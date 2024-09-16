@@ -7,6 +7,7 @@ export * from "./deletePlaylist";
 export * from "./getBinding";
 export * from "./getMedia";
 export * from "./getPlaylist";
+export * from "./headMediaContent";
 export * from "./listBindings";
 export * from "./listMedia";
 export * from "./listPlaylists";
