@@ -12,7 +12,7 @@ You can configure the app at runtime using various environment variables:
   (default: `0.0.0.0`)
 - `LOTUS__SERVER__PORT` -
   port to run the server on
-  (default: `43000`)
+  (default: `10230`)
 - `LOTUS__PELICAN__HTTP__SCHEME`
   scheme of the HTTP API of the pelican service
   (default: `http`)
@@ -21,7 +21,7 @@ You can configure the app at runtime using various environment variables:
   (default: `localhost`)
 - `LOTUS__PELICAN__HTTP__PORT`
   port of the HTTP API of the pelican service
-  (default: `42000`)
+  (default: `10200`)
 - `LOTUS__PELICAN__HTTP__PATH`
   path of the HTTP API of the pelican service
   (default: ``)

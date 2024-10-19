@@ -2,8 +2,8 @@
   "name": "lotus",
   "private": true,
   "scripts": {
-    "dev": "next dev --hostname \"${LOTUS__SERVER__HOST:-0.0.0.0}\" --port \"${LOTUS__SERVER__PORT:-43000}\"",
-    "run": "next start --hostname \"${LOTUS__SERVER__HOST:-0.0.0.0}\" --port \"${LOTUS__SERVER__PORT:-43000}\"",
+    "dev": "next dev --hostname \"${LOTUS__SERVER__HOST:-0.0.0.0}\" --port \"${LOTUS__SERVER__PORT:-10230}\"",
+    "run": "next start --hostname \"${LOTUS__SERVER__HOST:-0.0.0.0}\" --port \"${LOTUS__SERVER__PORT:-10230}\"",
     "build": "next build",
     "clean": "rm --recursive --force build/",
     "update": "ncu --peer --upgrade && npm i --no-audit --no-fund",

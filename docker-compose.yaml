@@ -5,9 +5,9 @@ services:
       network: host
     environment:
       - "LOTUS__SERVER__HOST=${LOTUS__SERVER__HOST:-0.0.0.0}"
-      - "LOTUS__SERVER__PORT=${LOTUS__SERVER__PORT:-43000}"
+      - "LOTUS__SERVER__PORT=${LOTUS__SERVER__PORT:-10230}"
       - "LOTUS__PELICAN__HTTP__SCHEME=${LOTUS__PELICAN__HTTP__SCHEME:-http}"
       - "LOTUS__PELICAN__HTTP__HOST=${LOTUS__PELICAN__HTTP__HOST:-localhost}"
-      - "LOTUS__PELICAN__HTTP__PORT=${LOTUS__PELICAN__HTTP__PORT:-42000}"
+      - "LOTUS__PELICAN__HTTP__PORT=${LOTUS__PELICAN__HTTP__PORT:-10200}"
       - "LOTUS__PELICAN__HTTP__PATH=${LOTUS__PELICAN__HTTP__PATH:-}"
     network_mode: host
