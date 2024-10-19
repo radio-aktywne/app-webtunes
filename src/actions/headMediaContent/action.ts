@@ -1,13 +1,13 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { HeadMediaContentProps } from "./types";
 
 const errorMessage = "Getting media content headers failed.";
 
 export async function headMediaContent({ id }: HeadMediaContentProps) {
   try {
-    const { error, response } = await emitunes.HEAD("/media/{id}/content", {
+    const { error, response } = await pelican.HEAD("/media/{id}/content", {
       params: {
         path: { id },
       },

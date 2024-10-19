@@ -1,6 +1,6 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { CreateBindingProps } from "./types";
 
 const genericErrorMessage = "Creating binding failed.";
@@ -13,7 +13,7 @@ export async function createBinding({
   rank,
 }: CreateBindingProps) {
   try {
-    const { data, error, response } = await emitunes.POST("/bindings", {
+    const { data, error, response } = await pelican.POST("/bindings", {
       body: {
         id: id,
         playlistId: playlist,

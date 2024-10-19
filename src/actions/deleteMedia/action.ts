@@ -1,13 +1,13 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { DeleteMediaProps } from "./types";
 
 const errorMessage = "Deleting media failed.";
 
 export async function deleteMedia({ id }: DeleteMediaProps) {
   try {
-    const { error, response } = await emitunes.DELETE("/media/{id}", {
+    const { error, response } = await pelican.DELETE("/media/{id}", {
       params: { path: { id } },
     });
 

@@ -2,10 +2,10 @@ import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes } from "prism-react-renderer";
 
-const url = new URL("https://radio-aktywne.github.io/webtunes");
+const url = new URL("https://radio-aktywne.github.io/lotus");
 
 const config: Config = {
-  title: "webtunes docs",
+  title: "lotus docs",
   favicon: "favicon.svg?v=1",
 
   url: `${url.protocol}//${url.host}`,
@@ -41,14 +41,14 @@ const config: Config = {
 
   themeConfig: {
     navbar: {
-      title: "webtunes docs",
+      title: "lotus docs",
       logo: {
-        alt: "webtunes docs logo",
+        alt: "lotus docs logo",
         src: "logo.svg?v=1",
       },
       items: [
         {
-          href: "https://github.com/radio-aktywne/webtunes",
+          href: "https://github.com/radio-aktywne/lotus",
           position: "right",
           className: "header-github-link",
           "aria-label": "GitHub repository",

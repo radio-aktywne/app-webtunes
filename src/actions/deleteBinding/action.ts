@@ -1,13 +1,13 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { DeleteBindingProps } from "./types";
 
 const errorMessage = "Deleting binding failed.";
 
 export async function deleteBinding({ id }: DeleteBindingProps) {
   try {
-    const { error, response } = await emitunes.DELETE("/bindings/{id}", {
+    const { error, response } = await pelican.DELETE("/bindings/{id}", {
       params: { path: { id } },
     });
 

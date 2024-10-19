@@ -3,10 +3,10 @@ slug: /
 title: Index
 ---
 
-# webtunes
+# lotus
 
 Broadcast playlists app 💽
 
 ## 💡 About
 
-`webtunes` is a web app for managing playlists of songs.
+`lotus` is a web app for managing playlists of songs.

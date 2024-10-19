@@ -1,13 +1,13 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { GetBindingProps } from "./types";
 
 const errorMessage = "Getting binding failed.";
 
 export async function getBinding({ id, include }: GetBindingProps) {
   try {
-    const { data, error, response } = await emitunes.GET("/bindings/{id}", {
+    const { data, error, response } = await pelican.GET("/bindings/{id}", {
       params: {
         path: { id },
         query: { include: include && JSON.stringify(include) },

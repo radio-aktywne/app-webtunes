@@ -2,15 +2,15 @@
 _commit: 0.2.0
 _src_path: gh:radio-aktywne/template-app-next
 accountname: radio-aktywne
-appname: webtunes
+appname: lotus
 description: Broadcast playlists app 💽
 docs: true
-docsurl: https://radio-aktywne.github.io/webtunes
-envprefix: WEBTUNES
-imagename: apps/webtunes
-keyprefix: webtunes
+docsurl: https://radio-aktywne.github.io/lotus
+envprefix: LOTUS
+imagename: apps/lotus
+keyprefix: lotus
 port: 43000
 registry: true
 releases: true
-reponame: webtunes
-repourl: https://github.com/radio-aktywne/webtunes
+reponame: lotus
+repourl: https://github.com/radio-aktywne/lotus

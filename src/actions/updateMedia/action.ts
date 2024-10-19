@@ -1,6 +1,6 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { UpdateMediaProps } from "./types";
 
 const genericErrorMessage = "Updating media failed.";
@@ -8,7 +8,7 @@ const badRequestErrorMessage = "Invalid data.";
 
 export async function updateMedia({ id, update }: UpdateMediaProps) {
   try {
-    const { data, error, response } = await emitunes.PATCH("/media/{id}", {
+    const { data, error, response } = await pelican.PATCH("/media/{id}", {
       params: { path: { id } },
       body: {
         id: update.id,

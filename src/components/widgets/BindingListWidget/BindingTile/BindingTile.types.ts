@@ -1,4 +1,4 @@
-import { components } from "../../../../api/emitunes";
+import { components } from "../../../../api/pelican";
 
 export type BindingTileLabels = {
   text: (id: string) => string;

@@ -1,6 +1,6 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { CreatePlaylistProps } from "./types";
 
 const genericErrorMessage = "Creating playlist failed.";
@@ -8,7 +8,7 @@ const badRequestErrorMessage = "Invalid data.";
 
 export async function createPlaylist({ id, name }: CreatePlaylistProps) {
   try {
-    const { data, error, response } = await emitunes.POST("/playlists", {
+    const { data, error, response } = await pelican.POST("/playlists", {
       body: { id, name },
     });
 
