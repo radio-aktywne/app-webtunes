@@ -1,5 +1,5 @@
 import { GetMediaProps } from "../../actions";
-import { components } from "../../api/emitunes";
+import { components } from "../../api/pelican";
 
 export type Media = components["schemas"]["media_models_Media"];
 

@@ -9,8 +9,8 @@ export const labels = {
   },
   pages: {
     index: {
-      title: "webtunes",
-      description: "webtunes",
+      title: "lotus",
+      description: "lotus",
       buttons: {
         media: {
           label: "Media",
@@ -24,58 +24,58 @@ export const labels = {
       },
     },
     mediaList: {
-      title: "Media • webtunes",
-      description: "webtunes",
+      title: "Media • lotus",
+      description: "lotus",
     },
     media: {
-      title: (id: string) => `Media ${id} • webtunes`,
-      description: "webtunes",
+      title: (id: string) => `Media ${id} • lotus`,
+      description: "lotus",
     },
     mediaNotFound: {
       text: "Media not found",
     },
     newMedia: {
-      title: "New Media • webtunes",
-      description: "webtunes",
+      title: "New Media • lotus",
+      description: "lotus",
     },
     playlistList: {
-      title: "Playlists • webtunes",
-      description: "webtunes",
+      title: "Playlists • lotus",
+      description: "lotus",
     },
     playlist: {
-      title: (id: string) => `Playlist ${id} • webtunes`,
-      description: "webtunes",
+      title: (id: string) => `Playlist ${id} • lotus`,
+      description: "lotus",
     },
     playlistNotFound: {
       text: "Playlist not found",
     },
     newPlaylist: {
-      title: "New Playlist • webtunes",
-      description: "webtunes",
+      title: "New Playlist • lotus",
+      description: "lotus",
     },
     bindingList: {
-      title: "Bindings • webtunes",
-      description: "webtunes",
+      title: "Bindings • lotus",
+      description: "lotus",
     },
     binding: {
-      title: (id: string) => `Binding ${id} • webtunes`,
-      description: "webtunes",
+      title: (id: string) => `Binding ${id} • lotus`,
+      description: "lotus",
     },
     bindingNotFound: {
       text: "Binding not found",
     },
     newBinding: {
-      title: "New Binding • webtunes",
-      description: "webtunes",
+      title: "New Binding • lotus",
+      description: "lotus",
     },
     notFound: {
-      title: "Not Found • webtunes",
-      description: "webtunes",
+      title: "Not Found • lotus",
+      description: "lotus",
       text: "Page not found",
     },
     error: {
-      title: "Error • webtunes",
-      description: "webtunes",
+      title: "Error • lotus",
+      description: "lotus",
       text: "Something went wrong",
       buttons: {
         retry: {

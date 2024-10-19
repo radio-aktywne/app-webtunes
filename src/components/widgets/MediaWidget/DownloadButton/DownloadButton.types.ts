@@ -1,4 +1,4 @@
-import { components } from "../../../../api/emitunes";
+import { components } from "../../../../api/pelican";
 
 export type DownloadButtonProps = {
   media: components["schemas"]["media_models_Media"];

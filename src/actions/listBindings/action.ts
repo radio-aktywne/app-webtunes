@@ -1,6 +1,6 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { ListBindingsProps } from "./types";
 
 const errorMessage = "Listing bindings failed.";
@@ -13,7 +13,7 @@ export async function listBindings({
   order,
 }: ListBindingsProps = {}) {
   try {
-    const { data, error, response } = await emitunes.GET("/bindings", {
+    const { data, error, response } = await pelican.GET("/bindings", {
       params: {
         query: {
           limit: limit,

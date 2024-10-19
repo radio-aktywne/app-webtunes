@@ -1,4 +1,4 @@
-import { components } from "../../../../api/emitunes";
+import { components } from "../../../../api/pelican";
 
 export type UploadButtonProps = {
   media: components["schemas"]["media_models_Media"];

@@ -1,13 +1,13 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { GetMediaProps } from "./types";
 
 const errorMessage = "Getting media failed.";
 
 export async function getMedia({ id, include }: GetMediaProps) {
   try {
-    const { data, error, response } = await emitunes.GET("/media/{id}", {
+    const { data, error, response } = await pelican.GET("/media/{id}", {
       params: {
         path: { id },
         query: { include: include && JSON.stringify(include) },

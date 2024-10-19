@@ -1,5 +1,5 @@
 import { ListMediaProps } from "../../actions";
-import { components } from "../../api/emitunes";
+import { components } from "../../api/pelican";
 
 export type MediaList = components["schemas"]["MediaList"];
 

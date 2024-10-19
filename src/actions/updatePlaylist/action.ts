@@ -1,6 +1,6 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { UpdatePlaylistProps } from "./types";
 
 const genericErrorMessage = "Updating playlist failed.";
@@ -8,7 +8,7 @@ const badRequestErrorMessage = "Invalid data.";
 
 export async function updatePlaylist({ id, update }: UpdatePlaylistProps) {
   try {
-    const { data, error, response } = await emitunes.PATCH("/playlists/{id}", {
+    const { data, error, response } = await pelican.PATCH("/playlists/{id}", {
       params: { path: { id } },
       body: {
         id: update.id,

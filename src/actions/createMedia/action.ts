@@ -1,6 +1,6 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { CreateMediaProps } from "./types";
 
 const genericErrorMessage = "Creating media failed.";
@@ -8,7 +8,7 @@ const badRequestErrorMessage = "Invalid data.";
 
 export async function createMedia({ id, name }: CreateMediaProps) {
   try {
-    const { data, error, response } = await emitunes.POST("/media", {
+    const { data, error, response } = await pelican.POST("/media", {
       body: { id, name },
     });
 

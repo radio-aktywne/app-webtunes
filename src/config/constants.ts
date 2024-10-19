@@ -1,3 +1,3 @@
-export const colorSchemeStorageKey = "webtunes-color-scheme";
+export const colorSchemeStorageKey = "lotus-color-scheme";
 export const defaultColorScheme = "auto";
-export const stateStorageKey = "webtunes-state";
+export const stateStorageKey = "lotus-state";

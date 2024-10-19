@@ -1,6 +1,6 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { UpdateBindingProps } from "./types";
 
 const genericErrorMessage = "Updating binding failed.";
@@ -8,7 +8,7 @@ const badRequestErrorMessage = "Invalid data.";
 
 export async function updateBinding({ id, update }: UpdateBindingProps) {
   try {
-    const { data, error, response } = await emitunes.PATCH("/bindings/{id}", {
+    const { data, error, response } = await pelican.PATCH("/bindings/{id}", {
       params: { path: { id } },
       body: {
         id: update.id,

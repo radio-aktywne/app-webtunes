@@ -1,4 +1,4 @@
-import { emitunes } from "../../../../api";
+import { pelican } from "../../../../api";
 
 type Params = {
   id: string;
@@ -31,15 +31,12 @@ function createNotFoundResponse(error?: string) {
 
 export async function GET(request: Request, { params }: Context) {
   try {
-    const { data, error, response } = await emitunes.GET(
-      "/media/{id}/content",
-      {
-        params: {
-          path: { id: params.id },
-        },
-        parseAs: "stream",
+    const { data, error, response } = await pelican.GET("/media/{id}/content", {
+      params: {
+        path: { id: params.id },
       },
-    );
+      parseAs: "stream",
+    });
 
     if (error) {
       if (response.status === 404) return createNotFoundResponse();
@@ -73,7 +70,7 @@ export async function PUT(request: Request, { params }: Context) {
     return createBadRequestResponse("Content-Type header is missing.");
 
   try {
-    const { error, response } = await emitunes.PUT("/media/{id}/content", {
+    const { error, response } = await pelican.PUT("/media/{id}/content", {
       params: {
         path: { id: params.id },
         header: { "Content-Type": contentType },

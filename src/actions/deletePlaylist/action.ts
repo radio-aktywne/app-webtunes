@@ -1,13 +1,13 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { DeletePlaylistProps } from "./types";
 
 const errorMessage = "Deleting playlist failed.";
 
 export async function deletePlaylist({ id }: DeletePlaylistProps) {
   try {
-    const { error, response } = await emitunes.DELETE("/playlists/{id}", {
+    const { error, response } = await pelican.DELETE("/playlists/{id}", {
       params: { path: { id } },
     });
 

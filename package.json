@@ -1,14 +1,14 @@
 {
-  "name": "webtunes",
+  "name": "lotus",
   "private": true,
   "scripts": {
-    "dev": "next dev --hostname \"${WEBTUNES__SERVER__HOST:-0.0.0.0}\" --port \"${WEBTUNES__SERVER__PORT:-43000}\"",
-    "run": "next start --hostname \"${WEBTUNES__SERVER__HOST:-0.0.0.0}\" --port \"${WEBTUNES__SERVER__PORT:-43000}\"",
+    "dev": "next dev --hostname \"${LOTUS__SERVER__HOST:-0.0.0.0}\" --port \"${LOTUS__SERVER__PORT:-43000}\"",
+    "run": "next start --hostname \"${LOTUS__SERVER__HOST:-0.0.0.0}\" --port \"${LOTUS__SERVER__PORT:-43000}\"",
     "build": "next build",
     "clean": "rm --recursive --force build/",
     "update": "ncu --peer --upgrade && npm i --no-audit --no-fund",
-    "generate-api-emitunes": "openapi-typescript openapi/emitunes.yaml -o src/api/emitunes/types.d.ts",
-    "generate-api": "npm run -- generate-api-emitunes"
+    "generate-api-pelican": "openapi-typescript openapi/pelican.yaml -o src/api/pelican/types.d.ts",
+    "generate-api": "npm run -- generate-api-pelican"
   },
   "dependencies": {
     "@mantine/core": "^7.7.1",

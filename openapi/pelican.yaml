@@ -1,5 +1,5 @@
 info:
-  title: emitunes app
+  title: pelican
 openapi: 3.1.0
 paths:
   /bindings:

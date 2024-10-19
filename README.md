@@ -1,13 +1,13 @@
-<h1 align="center">webtunes</h1>
+<h1 align="center">lotus</h1>
 
 <div align="center">
 
 Broadcast playlists app 💽
 
-[![Lint](https://github.com/radio-aktywne/webtunes/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/webtunes/actions/workflows/lint.yaml)
-[![Image](https://github.com/radio-aktywne/webtunes/actions/workflows/image.yaml/badge.svg)](https://github.com/radio-aktywne/webtunes/actions/workflows/image.yaml)
-[![Registry](https://github.com/radio-aktywne/webtunes/actions/workflows/registry.yaml/badge.svg)](https://github.com/radio-aktywne/webtunes/actions/workflows/registry.yaml)
-[![Docs](https://github.com/radio-aktywne/webtunes/actions/workflows/docs.yaml/badge.svg)](https://github.com/radio-aktywne/webtunes/actions/workflows/docs.yaml)
+[![Lint](https://github.com/radio-aktywne/lotus/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/lotus/actions/workflows/lint.yaml)
+[![Image](https://github.com/radio-aktywne/lotus/actions/workflows/image.yaml/badge.svg)](https://github.com/radio-aktywne/lotus/actions/workflows/image.yaml)
+[![Registry](https://github.com/radio-aktywne/lotus/actions/workflows/registry.yaml/badge.svg)](https://github.com/radio-aktywne/lotus/actions/workflows/registry.yaml)
+[![Docs](https://github.com/radio-aktywne/lotus/actions/workflows/docs.yaml/badge.svg)](https://github.com/radio-aktywne/lotus/actions/workflows/docs.yaml)
 
 </div>
 
@@ -15,14 +15,14 @@ Broadcast playlists app 💽
 
 ## 💡 About
 
-`webtunes` is a web app for managing playlists of songs.
+`lotus` is a web app for managing playlists of songs.
 
 ## 📄 Further Reading
 
 More in-depth documentation can be found
-[here](https://radio-aktywne.github.io/webtunes).
+[here](https://radio-aktywne.github.io/lotus).
 
 ## 💻 Development
 
 Read more about how to develop the project
-[here](https://github.com/radio-aktywne/webtunes/blob/main/CONTRIBUTING.md).
+[here](https://github.com/radio-aktywne/lotus/blob/main/CONTRIBUTING.md).

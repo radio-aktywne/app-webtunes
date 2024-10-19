@@ -1,6 +1,6 @@
 "use server";
 
-import { emitunes } from "../../api";
+import { pelican } from "../../api";
 import { ListMediaProps } from "./types";
 
 const errorMessage = "Listing media failed.";
@@ -13,7 +13,7 @@ export async function listMedia({
   order,
 }: ListMediaProps = {}) {
   try {
-    const { data, error, response } = await emitunes.GET("/media", {
+    const { data, error, response } = await pelican.GET("/media", {
       params: {
         query: {
           limit: limit,
