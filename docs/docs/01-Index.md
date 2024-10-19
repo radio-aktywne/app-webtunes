@@ -3,10 +3,10 @@ slug: /
 title: Index
 ---
 
-# webtunes app
+# webtunes
 
-Emission playlists web UI 💽
+Broadcast playlists app 💽
 
 ## 💡 About
 
-`webtunes` is a web application for managing playlists of songs.
+`webtunes` is a web app for managing playlists of songs.
