@@ -7,7 +7,7 @@ const scheme = process.env.LOTUS__PELICAN__HTTP__SCHEME || "http";
 const host = process.env.LOTUS__PELICAN__HTTP__HOST || "localhost";
 const port =
   process.env.LOTUS__PELICAN__HTTP__PORT === undefined
-    ? 42000
+    ? 10200
     : process.env.LOTUS__PELICAN__HTTP__PORT;
 const path = (process.env.LOTUS__PELICAN__HTTP__PATH || "")
   // Ensure path starts with a slash

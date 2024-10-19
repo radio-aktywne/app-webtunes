@@ -9,7 +9,7 @@ docsurl: https://radio-aktywne.github.io/lotus
 envprefix: LOTUS
 imagename: apps/lotus
 keyprefix: lotus
-port: 43000
+port: 10230
 registry: true
 releases: true
 reponame: lotus
