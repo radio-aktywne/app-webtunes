@@ -1,16 +1,16 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: 0.1.1
+_commit: 0.2.0
 _src_path: gh:radio-aktywne/template-app-next
 accountname: radio-aktywne
 appname: webtunes
-description: Emission playlists web UI 💽
+description: Broadcast playlists app 💽
 docs: true
-docsurl: https://radio-aktywne.github.io/app-webtunes
+docsurl: https://radio-aktywne.github.io/webtunes
 envprefix: WEBTUNES
 imagename: apps/webtunes
 keyprefix: webtunes
 port: 43000
 registry: true
 releases: true
-reponame: app-webtunes
-repourl: https://github.com/radio-aktywne/app-webtunes
+reponame: webtunes
+repourl: https://github.com/radio-aktywne/webtunes
